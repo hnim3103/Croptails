@@ -1,0 +1,59 @@
+# Godot 4+ specific
+.godot/
+*.translation
+
+# Godot 3 specific (keep if migrating or mixed environments)
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported formats (automatically imported by Godot)
+*.png.import
+*.jpg.import
+*.jpeg.import
+*.otf.import
+*.ttf.import
+*.wav.import
+*.ogg.import
+*.mp3.import
+*.bmp.import
+*.tga.import
+*.svg.import
+*.svgz.import
+*.exr.import
+*.hdr.import
+*.webm.import
+*.webp.import
+*.txt.import
+*.csv.import
+
+# Mono/C# / .NET (if using Godot with C#)
+.mono/
+.vscode/
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svnpwn
+*.sbr
+*.ncc
+obj/
+bin/
+
+# Crash logs
+godot_open_xr_editor_log.txt
+mono_crash.*.json
+
+# Export builds (Customize this path if your builds go elsewhere)
+/builds/
+/dist/
+/releases/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+desktop.ini
