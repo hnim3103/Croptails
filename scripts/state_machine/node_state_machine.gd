@@ -16,7 +16,9 @@ func _ready() -> void:
 	if initial_node_state:
 		initial_node_state._on_enter()
 		current_node_state = initial_node_state
-
+		current_node_state_name = current_node_state.name.to_lower()
+	else:
+		print("Please assign Initial Node State!!!")
 
 func _process(delta : float) -> void:
 	if current_node_state:
