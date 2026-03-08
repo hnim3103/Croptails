@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cvgm7gain1wk6"]
+
+[ext_resource type="Script" uid="uid://beq4td41mosm3" path="res://scenes/characters/none_playable_character.gd" id="1_14ngq"]
+[ext_resource type="Texture2D" uid="uid://bffhtv5g6cyxa" path="res://assets/game/characters/cow_sprites.png" id="2_ilrem"]
+[ext_resource type="Script" uid="uid://85yktsnywlwv" path="res://scripts/state_machine/node_state_machine.gd" id="3_j7g5r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jynl"]
+atlas = ExtResource("2_ilrem")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgos1"]
+atlas = ExtResource("2_ilrem")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsrfl"]
+atlas = ExtResource("2_ilrem")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cmdg"]
+atlas = ExtResource("2_ilrem")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_essvg"]
+atlas = ExtResource("2_ilrem")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2exp5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jynl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgos1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsrfl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cmdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_essvg")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e38go"]
+size = Vector2(18, 13)
+
+[node name="Cow" type="CharacterBody2D" unique_id=1634305126]
+script = ExtResource("1_14ngq")
+min_walk_cycle = 3
+max_walk_cycle = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1617915089]
+sprite_frames = SubResource("SpriteFrames_2exp5")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.14079498
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1738665515]
+position = Vector2(-2, 6.5)
+shape = SubResource("RectangleShape2D_e38go")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=67208468]
+
+[node name="StateMachine" type="Node" parent="." unique_id=1589137691]
+script = ExtResource("3_j7g5r")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=129241711]
+
+[node name="Walk" type="Node" parent="StateMachine" unique_id=1568241022]
